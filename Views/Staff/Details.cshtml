@@ -1,0 +1,40 @@
+@model HRDepartment.Models.Staff
+
+@{
+    ViewData["Title"] = "Staff details";
+}
+
+<h1>Details</h1>
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-12 col-md-4 text-center p-3">
+                @if (!string.IsNullOrEmpty(Model.PhotoPath))
+                {
+                    <img src="@Model.PhotoPath" class="img-fluid rounded" alt="photo" style="max-height:320px; object-fit:cover;" />
+                }
+                else
+                {
+                    <div class="bg-light p-5">No photo</div>
+                }
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">@Model.Name</h4>
+                    <dl class="row">
+                        <dt class="col-sm-4">Staff ID</dt>
+                        <dd class="col-sm-8">@Model.StaffId</dd>
+
+                        <dt class="col-sm-4">Email</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
+
+                        <dt class="col-sm-4">Phone</dt>
+                        <dd class="col-sm-8">@Model.Phone</dd>
+
+                        <dt class="col-sm-4">Starting Date</dt>
+                        <dd class="col-sm-8">@Model.StartingDate.ToString("yyyy-MM-dd")</dd>
+                    </dl>
+                    <a asp-action="Index" class="btn btn-secondary">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,47 @@
+@model HRDepartment.Models.Staff
+
+@{
+    ViewData["Title"] = "Add staff";
+}
+
+<h1>Add Staff</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="StaffId" class="form-label"></label>
+        <input asp-for="StaffId" class="form-control" />
+        <span asp-validation-for="StaffId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="StartingDate" class="form-label"></label>
+        <input asp-for="StartingDate" class="form-control" type="date" />
+        <span asp-validation-for="StartingDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhotoPath" class="form-label">Photo</label>
+        <input name="Photo" type="file" class="form-control" />
+        <span asp-validation-for="PhotoPath" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+n@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
